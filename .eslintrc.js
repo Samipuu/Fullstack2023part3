@@ -4,7 +4,12 @@ module.exports = {
     commonjs: true,
     es2021: true,
   },
-  extends: 'eslint:recommended',
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:react/jsx-runtime',
+    'plugin:react-hooks/recommended',
+  ],
   ignorePatterns: ['dist', '.eslintrc.js'],
   overrides: [
     {
@@ -19,11 +24,15 @@ module.exports = {
   ],
   parserOptions: {
     ecmaVersion: 'latest',
+    sourceType: 'module',
   },
+  settings: { react: { version: '18.2' } },
+  plugins: ['react-refresh'],
   rules: {
-    indent: ['error', 4],
+    indent: ['error', 2],
     'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],
     semi: ['error', 'never'],
+    'react/prop-types': 0,
   },
 }
